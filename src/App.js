@@ -1,18 +1,20 @@
 import React, { useState } from "react";
 import "./App.css";
 
-import Letter from "./components/letter.component";
-// import WordInput from "./components/wordInput.component";
+// import Letter from "./components/letter.component";
+import WordInput from "./components/wordInput.component";
 import WordList from "./components/wordList.component";
 // import Button from "./components/button.component";
 import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
+import { Solver } from "./solver.js";
 
 function App() {
-  const [letterInput, setLetters] = useState("");
+  const [letterInput, setLetters] = useState("encyclopediaA");
+  const [words, setWords] = useState([]);
 
   function handleSolveClick() {
-    console.log("final letters = ", letterInput);
+    const words = Solver(letterInput);
+    setWords(words);
   }
   function handleLetters(e) {
     setLetters(e.target.value);
@@ -20,14 +22,10 @@ function App() {
   return (
     <div className="App">
       <form noValidate autoComplete="off">
-        <TextField
-          id="filled-basic"
-          label="Enter letters"
-          onChange={handleLetters}
-        />
+        <WordInput defaultValue={letterInput} onChange={handleLetters} />
       </form>
-      <Letter />
-      <WordList />
+      {/* <Letter /> */}
+      <WordList words={words} />
       <Button variant="contained" color="primary" onClick={handleSolveClick}>
         Solve
       </Button>
