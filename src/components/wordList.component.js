@@ -23,19 +23,16 @@ function WordList(props) {
     setWords(props.words);
   }, [props.words]);
 
-  const sortWords = (property) => (event) => {
-    let newwords;
+  const sortWords = () => {
     if (words) {
       if (sortDir === "asc") {
-        newwords = words.sort((a, b) => b.length - a.length); // sort long to short
-        setSortDir("des");
+        words.sort((a, b) => b.length - a.length); // sort long to short
+        setSortDir("desc");
       } else {
-        newwords = words.sort((a, b) => a.length - b.length); // sort short to long
+        words.sort((a, b) => a.length - b.length); // sort short to long
         setSortDir("asc");
       }
     }
-    setWords(newwords);
-
     setWords(
       words.map((word) => {
         return word;
@@ -51,9 +48,10 @@ function WordList(props) {
             <TableCell>Word (total = {words ? words.length : 0})</TableCell>
             <TableCell>
               <TableSortLabel
-                active={true}
-                direction={"asc"}
-                onClick={sortWords()}
+                direction={sortDir}
+                hideSortIcon={words.length === 0}
+                active={words.length > 0}
+                onClick={sortWords}
               >
                 Length
               </TableSortLabel>

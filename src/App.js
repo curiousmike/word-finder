@@ -16,14 +16,23 @@ function App() {
     const words = Solver(letterInput);
     setWords(words);
   }
+
   function handleLetters(e) {
     setLetters(e.target.value);
   }
+
+  function handleKeyPress(e) {
+    if (e.key === "Enter") {
+      handleSolveClick();
+    }
+  }
   return (
     <div className="App">
-      <form noValidate autoComplete="off">
-        <WordInput defaultValue={letterInput} onChange={handleLetters} />
-      </form>
+      <WordInput
+        defaultValue={letterInput}
+        onChange={handleLetters}
+        onKeyPress={handleKeyPress}
+      />
       {/* <Letter /> */}
       <WordList words={words} />
       <Button variant="contained" color="primary" onClick={handleSolveClick}>

@@ -8,6 +8,7 @@ function WordInput(props) {
       label="Enter letters"
       defaultValue={props.defaultValue}
       onChange={props.onChange}
+      onKeyPress={props.onKeyPress}
     />
   );
 }
