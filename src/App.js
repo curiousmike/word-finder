@@ -9,8 +9,11 @@ import Button from "@material-ui/core/Button";
 import { Solver } from "./solver.js";
 
 function App() {
-  const [letterInput, setLetters] = useState("encyclopediaA");
+  const [letterInput, setLetters] = useState("coustier");
   const [words, setWords] = useState([]);
+  React.useEffect(() => {
+    handleSolveClick(); // on component mount, trigger a solve.
+  });
 
   function handleSolveClick() {
     const words = Solver(letterInput);
@@ -26,7 +29,7 @@ function App() {
       handleSolveClick();
     }
   }
-  console.log("App render.");
+
   return (
     <div className="App">
       <WordInput

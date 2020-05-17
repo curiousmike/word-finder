@@ -17,14 +17,18 @@ const useStyles = makeStyles({
   table: { minWidth: 500 },
 });
 
+const rowsPerPageOptions = [5, 10, 25, { label: "All", value: -1 }];
+
 function WordList(props) {
   const classes = useStyles();
-  const [words, setWords] = useState([]);
+  const [words, setWords] = useState([]); // props.words);
   const [sortDir, setSortDir] = useState("asc");
   const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [rowsPerPage, setRowsPerPage] = useState(rowsPerPageOptions[0]);
   React.useEffect(() => {
     setWords(props.words);
+    // i want to sort them too
+    // sortWords();
   }, [props.words]);
 
   const sortWords = () => {
@@ -92,7 +96,7 @@ function WordList(props) {
         <TableFooter>
           <TableRow>
             <TablePagination
-              rowsPerPageOptions={[5, 10, 25, { label: "All", value: -1 }]}
+              rowsPerPageOptions={rowsPerPageOptions}
               colSpan={3}
               count={words.length}
               rowsPerPage={rowsPerPage}
