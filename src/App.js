@@ -26,6 +26,7 @@ function App() {
       handleSolveClick();
     }
   }
+  console.log("App render.");
   return (
     <div className="App">
       <WordInput

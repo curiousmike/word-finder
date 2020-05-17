@@ -67,4 +67,3 @@ function generateWordCombos(letters) {
   }
   return foundWords;
 }
-
