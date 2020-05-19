@@ -13,36 +13,44 @@ import TablePagination from "@material-ui/core/TablePagination";
 import Paper from "@material-ui/core/Paper";
 
 const useStyles = makeStyles({
-  tableContainer: { maxHeight: "500px", maxWidth: "750px" },
+  tableContainer: {
+    maxHeight: "500px",
+    maxWidth: "750px",
+    flexDirection: "column",
+    display: "inline-flex",
+  },
   table: { minWidth: 500 },
+  activeSortIcon: { opacity: 1 },
+  inactiveSortIcon: { opacity: 0.4 },
 });
 
 const rowsPerPageOptions = [5, 10, 25, { label: "All", value: -1 }];
 
 function WordList(props) {
   const classes = useStyles();
-  const [words, setWords] = useState([]); // props.words);
+  const [foundWords, setWords] = useState(props.words); // useState ([]);
   const [sortDir, setSortDir] = useState("asc");
+  const [isSorted, setSorted] = useState(false);
   const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(rowsPerPageOptions[0]);
+  const [rowsPerPage, setRowsPerPage] = useState(rowsPerPageOptions[1]);
+
   React.useEffect(() => {
     setWords(props.words);
-    // i want to sort them too
-    // sortWords();
   }, [props.words]);
 
   const sortWords = () => {
-    if (words) {
+    setSorted(true);
+    if (foundWords) {
       if (sortDir === "asc") {
-        words.sort((a, b) => b.length - a.length); // sort long to short
+        foundWords.sort((a, b) => b.length - a.length); // sort long to short
         setSortDir("desc");
       } else {
-        words.sort((a, b) => a.length - b.length); // sort short to long
+        foundWords.sort((a, b) => a.length - b.length); // sort short to long
         setSortDir("asc");
       }
     }
     setWords(
-      words.map((word) => {
+      foundWords.map((word) => {
         return word;
       })
     );
@@ -62,12 +70,19 @@ function WordList(props) {
       <Table className={classes.table} size="small" aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Word (total = {words ? words.length : 0})</TableCell>
+            <TableCell>
+              Word (total = {foundWords ? foundWords.length : 0})
+            </TableCell>
             <TableCell>
               <TableSortLabel
+                classes={{
+                  root: isSorted
+                    ? classes.activeSortIcon
+                    : classes.inactiveSortIcon,
+                }}
                 direction={sortDir}
-                hideSortIcon={words.length === 0}
-                active={words.length > 0}
+                hideSortIcon={foundWords.length === 0}
+                active={foundWords.length > 0}
                 onClick={sortWords}
               >
                 Length
@@ -76,13 +91,13 @@ function WordList(props) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {words &&
+          {foundWords &&
             (rowsPerPage > 0
-              ? words.slice(
+              ? foundWords.slice(
                   page * rowsPerPage,
                   page * rowsPerPage + rowsPerPage
                 )
-              : words
+              : foundWords
             ).map((word) => (
               <TableRow key={word}>
                 <TableCell component="th" scope="row">
@@ -98,7 +113,7 @@ function WordList(props) {
             <TablePagination
               rowsPerPageOptions={rowsPerPageOptions}
               colSpan={3}
-              count={words.length}
+              count={foundWords.length}
               rowsPerPage={rowsPerPage}
               page={page}
               onChangePage={handleChangePage}
