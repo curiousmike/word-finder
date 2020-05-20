@@ -15,14 +15,16 @@ function WordInput(props) {
   const classes = useStyles();
   return (
     <div className={classes.container}>
-      <TextField
-        className={classes.input}
-        id="filled-basic"
-        label="Enter letters"
-        defaultValue={props.value}
-        onChange={props.onChange}
-        onKeyPress={props.onKeyPress}
-      />
+      <form onSubmit={props.onSubmit}>
+        <TextField
+          className={classes.input}
+          id="filled-basic"
+          defaultValue={props.value}
+          onChange={props.onChange}
+          onKeyUp={props.onKeyPress}
+          label="Enter letters here"
+        />
+      </form>
     </div>
   );
 }

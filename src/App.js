@@ -8,34 +8,50 @@ import Typography from "@material-ui/core/Typography";
 import { Solver } from "./solver.js";
 
 function App() {
-  const [letterInput, setLetters] = useState("coustier");
+  const [letterInput, setLetters] = useState("");
   const [words, setWords] = useState([]);
-
   const handleSolveClick = React.useCallback(() => {
     const words = Solver(letterInput);
     setWords(words);
   }, [letterInput, setWords]);
 
-  React.useEffect(() => {
-    handleSolveClick(); // on component mount, trigger a solve.
-  }, [letterInput, handleSolveClick]);
+  // React.useEffect(() => {
+  //   handleSolveClick(); // on component mount, trigger a solve.
+  // }, [letterInput, handleSolveClick]);
 
   function handleKeyPress(e) {
+    setLetters(e.target.value);
     if (e.key === "Enter") {
-      setLetters(e.target.value);
       handleSolveClick();
     }
   }
 
+  function handleSubmit(e) {
+    e.preventDefault();
+    handleSolveClick();
+  }
+
   return (
     <div className="App">
-      <Typography variant="h3">Word Finder</Typography>
-      <WordInput value={letterInput} onKeyPress={handleKeyPress} />
-      <WordList words={words} />
-      <div className="App-button">
-        <Button variant="contained" color="primary" onClick={handleSolveClick}>
-          Solve
-        </Button>
+      <div className="InnerContent">
+        <Typography variant="h4">Word Finder</Typography>
+        <WordInput
+          value={letterInput}
+          onKeyPress={handleKeyPress}
+          onSubmit={handleSubmit}
+        />
+        <WordList words={words} />
+        <div className="App-button">
+          <Button
+            variant="contained"
+            color="primary"
+            size="large"
+            onClick={handleSolveClick}
+            onSubmit={handleSolveClick}
+          >
+            Solve
+          </Button>
+        </div>
       </div>
     </div>
   );

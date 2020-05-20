@@ -1,7 +1,8 @@
 import { globalWordList } from "./globalWordList.js";
 
 export function Solver(letters) {
-  return generateWordCombos(letters);
+  const fixedLetters = letters.toLowerCase();
+  return generateWordCombos(fixedLetters);
 }
 
 function resetDictionaryArray(dict) {

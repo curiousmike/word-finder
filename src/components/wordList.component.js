@@ -14,14 +14,34 @@ import Paper from "@material-ui/core/Paper";
 
 const useStyles = makeStyles({
   tableContainer: {
-    maxHeight: "500px",
-    maxWidth: "750px",
-    flexDirection: "column",
+    maxWidth: "375px",
     display: "inline-flex",
+    overflow: "hidden",
   },
-  table: { minWidth: 500 },
-  activeSortIcon: { opacity: 1 },
-  inactiveSortIcon: { opacity: 0.4 },
+  // table: { minWidth: 500 },
+  activeSortIcon: { opacity: 1, width: "20px" },
+  inactiveSortIcon: { opacity: 0.4, width: "20px" },
+  MuiTablePaginationSpacer: {
+    display: "block",
+    padding: "1px",
+    overflow: "hidden",
+    "margin-left": "1px",
+  },
+  MuiTablePaginationActions: {
+    "margin-left": "1px",
+  },
+  tableFooter: {
+    overflow: "hidden",
+    // padding: "0px !important",
+  },
+  MuiTablePaginationInput: {
+    "margin-right": "4px !important",
+  },
+  MuiTablePaginationSelectRoot: {
+    "margin-right": "1px",
+    "margin-left": "1px",
+    // backgroundColor: "red",
+  },
 });
 
 const rowsPerPageOptions = [5, 10, 25, { label: "All", value: -1 }];
@@ -67,11 +87,11 @@ function WordList(props) {
 
   return (
     <TableContainer className={classes.tableContainer} component={Paper}>
-      <Table className={classes.table} size="small" aria-label="simple table">
+      <Table size="small" aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>
-              Word (total = {foundWords ? foundWords.length : 0})
+            <TableCell style={{ width: "140px" }}>
+              Words {foundWords ? "(" + foundWords.length + ")" : ""}
             </TableCell>
             <TableCell>
               <TableSortLabel
@@ -100,10 +120,16 @@ function WordList(props) {
               : foundWords
             ).map((word) => (
               <TableRow key={word}>
-                <TableCell component="th" scope="row">
+                <TableCell
+                  component="th"
+                  scope="row"
+                  style={{ width: "140px" }}
+                >
                   {word}
                 </TableCell>
-                <TableCell align="right">{word.length}</TableCell>
+                <TableCell align="right" style={{ width: "80px" }}>
+                  {word.length}
+                </TableCell>
               </TableRow>
             ))}
         </TableBody>
@@ -111,13 +137,16 @@ function WordList(props) {
         <TableFooter>
           <TableRow>
             <TablePagination
+              style={{ padding: "0px" }}
               rowsPerPageOptions={rowsPerPageOptions}
-              colSpan={3}
+              colSpan={2}
               count={foundWords.length}
               rowsPerPage={rowsPerPage}
               page={page}
               onChangePage={handleChangePage}
               onChangeRowsPerPage={handleChangeRowsPerPage}
+              labelRowsPerPage={"R/P"}
+              className={classes.tableFooter}
             ></TablePagination>
           </TableRow>
         </TableFooter>
