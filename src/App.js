@@ -34,13 +34,19 @@ function App() {
   return (
     <div className="App">
       <div className="InnerContent">
-        <Typography variant="h4">Word Finder</Typography>
+        <div className="TitleContainer">
+          <Typography variant="h4" className="Title">
+            Word Finder
+          </Typography>
+        </div>
+
         <WordInput
           value={letterInput}
           onKeyPress={handleKeyPress}
           onSubmit={handleSubmit}
         />
         <WordList words={words} />
+
         <div className="App-button">
           <Button
             variant="contained"

@@ -7,7 +7,8 @@ const useStyles = makeStyles({
     background: "#DAF7A6",
   },
   container: {
-    margin: "4px",
+    margin: "0px auto",
+    textAlign: "center",
   },
 });
 

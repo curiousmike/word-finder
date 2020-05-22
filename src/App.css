@@ -1,14 +1,16 @@
 .App {
-  text-align: center;
-  background: #f8d69f;
-  width: 100%;
-  height: 1080px;
 }
+
 .InnerContent {
-  width: 700px;
-  max-width: 90%;
+  width: 100%;
   height: 100%;
+  background: #f8d69f;
   margin: 0px auto;
+}
+
+.TitleContainer {
+  margin: 0px auto;
+  text-align: center;
 }
 
 .App-logo {
@@ -17,7 +19,9 @@
 }
 
 .App-button {
-  margin: 4px;
+  margin-top: 8px;
+  padding-bottom: 8px;
+  text-align: center;
 }
 
 @media (prefers-reduced-motion: no-preference) {

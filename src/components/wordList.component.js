@@ -14,9 +14,10 @@ import Paper from "@material-ui/core/Paper";
 
 const useStyles = makeStyles({
   tableContainer: {
-    maxWidth: "375px",
-    display: "inline-flex",
-    overflow: "hidden",
+    textAlign: "center",
+    margin: "0px auto",
+    width: "70%",
+    maxWidth: "1024px",
   },
   // table: { minWidth: 500 },
   activeSortIcon: { opacity: 1, width: "20px" },
