@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -9,46 +8,12 @@ import TableSortLabel from "@material-ui/core/TableSortLabel";
 import TableRow from "@material-ui/core/TableRow";
 import TableFooter from "@material-ui/core/TableFooter";
 import TablePagination from "@material-ui/core/TablePagination";
+import "./wordList.component.css";
 
 import Paper from "@material-ui/core/Paper";
-
-const useStyles = makeStyles({
-  tableContainer: {
-    textAlign: "center",
-    margin: "0px auto",
-    width: "70%",
-    maxWidth: "1024px",
-  },
-  // table: { minWidth: 500 },
-  activeSortIcon: { opacity: 1, width: "20px" },
-  inactiveSortIcon: { opacity: 0.4, width: "20px" },
-  MuiTablePaginationSpacer: {
-    display: "block",
-    padding: "1px",
-    overflow: "hidden",
-    "margin-left": "1px",
-  },
-  MuiTablePaginationActions: {
-    "margin-left": "1px",
-  },
-  tableFooter: {
-    overflow: "hidden",
-    // padding: "0px !important",
-  },
-  MuiTablePaginationInput: {
-    "margin-right": "4px !important",
-  },
-  MuiTablePaginationSelectRoot: {
-    "margin-right": "1px",
-    "margin-left": "1px",
-    // backgroundColor: "red",
-  },
-});
-
 const rowsPerPageOptions = [5, 10, 25, { label: "All", value: -1 }];
 
 function WordList(props) {
-  const classes = useStyles();
   const [foundWords, setWords] = useState(props.words); // useState ([]);
   const [sortDir, setSortDir] = useState("asc");
   const [isSorted, setSorted] = useState(false);
@@ -87,7 +52,7 @@ function WordList(props) {
   };
 
   return (
-    <TableContainer className={classes.tableContainer} component={Paper}>
+    <TableContainer className="tableContainer" component={Paper}>
       <Table size="small" aria-label="simple table">
         <TableHead>
           <TableRow>
@@ -97,9 +62,7 @@ function WordList(props) {
             <TableCell>
               <TableSortLabel
                 classes={{
-                  root: isSorted
-                    ? classes.activeSortIcon
-                    : classes.inactiveSortIcon,
+                  root: isSorted ? "activeSortIcon" : "inactiveSortIcon",
                 }}
                 direction={sortDir}
                 hideSortIcon={foundWords.length === 0}
@@ -147,7 +110,7 @@ function WordList(props) {
               onChangePage={handleChangePage}
               onChangeRowsPerPage={handleChangeRowsPerPage}
               labelRowsPerPage={"R/P"}
-              className={classes.tableFooter}
+              className="tableFooter"
             ></TablePagination>
           </TableRow>
         </TableFooter>

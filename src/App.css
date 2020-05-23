@@ -2,13 +2,28 @@
 }
 
 .InnerContent {
+  min-height: calc(100vh - 46px - 58px);
   width: 100%;
-  height: 100%;
   background: #f8d69f;
   margin: 0px auto;
 }
+.footer {
+  height: 46px;
+  background-color: tan;
+}
+.footerText {
+  padding-top: 8px;
+}
 
+@media (min-width: 769px) {
+  .InnerContent {
+    /*    min-height: 100vh;*/ /* vh=viewport relative - ViewHeight. 1vh = 1%. 100vh = 100%*/
+    /* this lets us set min height to subtract hard-coded footer height AND height of solve button */
+    min-height: 625;
+  }
+}
 .TitleContainer {
+  /* This is the keybit to center vertically - the margin AND text-align*/
   margin: 0px auto;
   text-align: center;
 }
@@ -19,9 +34,10 @@
 }
 
 .App-button {
-  margin-top: 8px;
+  padding-top: 8px;
   padding-bottom: 8px;
   text-align: center;
+  background-color: lightgoldenrodyellow;
 }
 
 @media (prefers-reduced-motion: no-preference) {

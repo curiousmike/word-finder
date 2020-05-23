@@ -1,0 +1,51 @@
+* {
+  box-sizing: border-box; /* forces padding and borders into width and height of elements instead of expanding */
+}
+.tableContainer {
+  text-align: center;
+  margin: 4px auto 4px;
+  width: 100%;
+  max-width: 720px;
+
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.activeSortIcon {
+  opacity: 1;
+  width: 20px;
+}
+
+.inactiveSortIcon {
+  opacity: 0.4;
+  width: 20px;
+}
+
+.MuiTablePaginationSpacer {
+  display: block;
+  padding: 1px;
+  overflow: hidden;
+  margin-left: 1px;
+}
+
+.MuiTablePaginationActions {
+  margin-left: 1px;
+}
+
+.tableFooter {
+  overflow: hidden;
+}
+.MuiTablePaginationInput {
+  margin-right: 4px !important;
+}
+
+.MuiTablePaginationSelectRoot {
+  margin-right: 1px;
+  margin-left: 1px;
+}
+
+@media (min-width: 769px) {
+  .tableContainer {
+    width: 70%;
+  }
+}

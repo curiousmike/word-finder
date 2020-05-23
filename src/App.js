@@ -7,6 +7,7 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { Solver } from "./solver.js";
 
+const footerText = "Michael Coustier's Word Finder Deluxe Edition 2020";
 function App() {
   const [letterInput, setLetters] = useState("");
   const [words, setWords] = useState([]);
@@ -46,18 +47,21 @@ function App() {
           onSubmit={handleSubmit}
         />
         <WordList words={words} />
-
-        <div className="App-button">
-          <Button
-            variant="contained"
-            color="primary"
-            size="large"
-            onClick={handleSolveClick}
-            onSubmit={handleSolveClick}
-          >
-            Solve
-          </Button>
-        </div>
+      </div>
+      <div className="App-button">
+        <Button
+          variant="contained"
+          color="primary"
+          size="large"
+          onClick={handleSolveClick}
+          onSubmit={handleSolveClick}
+        >
+          Solve
+        </Button>
+      </div>
+      <div className="footer">
+        <div className="footerText"></div>
+        {footerText}
       </div>
     </div>
   );

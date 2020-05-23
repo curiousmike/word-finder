@@ -5,9 +5,10 @@ import TextField from "@material-ui/core/TextField";
 const useStyles = makeStyles({
   input: {
     background: "#DAF7A6",
+    "text-align": "center",
   },
   container: {
-    margin: "0px auto",
+    margin: "0px auto 8px",
     textAlign: "center",
   },
 });
