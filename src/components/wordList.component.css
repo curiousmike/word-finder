@@ -11,6 +11,10 @@
   padding-right: 1em;
 }
 
+.tableInner {
+  background-color: papayawhip;
+}
+
 .activeSortIcon {
   opacity: 1;
   width: 20px;

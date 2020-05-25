@@ -52,8 +52,12 @@ function WordList(props) {
   };
 
   return (
-    <TableContainer className="tableContainer" component={Paper}>
-      <Table size="small" aria-label="simple table">
+    <TableContainer
+      className="tableContainer"
+      style={{ backgroundColor: "papayawhip" }}
+      component={Paper}
+    >
+      <Table size="small" aria-label="simple table" className="tableInner">
         <TableHead>
           <TableRow>
             <TableCell style={{ width: "140px" }}>

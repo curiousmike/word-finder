@@ -4,10 +4,10 @@ import "./App.css";
 import WordInput from "./components/wordInput.component";
 import WordList from "./components/wordList.component";
 import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
+// import Typography from "@material-ui/core/Typography";
 import { Solver } from "./solver.js";
 
-const footerText = "Michael Coustier's Word Finder Deluxe Edition 2020";
+const footerText = "Michael Coustier's Word Finder 2020";
 function App() {
   const [letterInput, setLetters] = useState("");
   const [words, setWords] = useState([]);
@@ -36,9 +36,7 @@ function App() {
     <div className="App">
       <div className="InnerContent">
         <div className="TitleContainer">
-          <Typography variant="h4" className="Title">
-            Word Finder
-          </Typography>
+          <div className="Title">Word Finder</div>
         </div>
 
         <WordInput

@@ -2,7 +2,7 @@
 }
 
 .InnerContent {
-  min-height: calc(100vh - 46px - 58px);
+  min-height: calc(80vh - 46px - 58px);
   width: 100%;
   background: #f8d69f;
   margin: 0px auto;
@@ -19,13 +19,19 @@
   .InnerContent {
     /*    min-height: 100vh;*/ /* vh=viewport relative - ViewHeight. 1vh = 1%. 100vh = 100%*/
     /* this lets us set min height to subtract hard-coded footer height AND height of solve button */
-    min-height: 625;
+    /* min-height: 625px; */
+    min-height: calc(100vh - 46px - 58px);
   }
 }
 .TitleContainer {
   /* This is the keybit to center vertically - the margin AND text-align*/
   margin: 0px auto;
   text-align: center;
+}
+.Title {
+  /* font-family: "Anton", sans-serif; */
+  font-family: "Bangers", cursive;
+  font-size: 48px;
 }
 
 .App-logo {
