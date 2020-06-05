@@ -4,25 +4,33 @@ import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
-import TableSortLabel from "@material-ui/core/TableSortLabel";
+// import TableSortLabel from "@material-ui/core/TableSortLabel";
 import TableRow from "@material-ui/core/TableRow";
 import TableFooter from "@material-ui/core/TableFooter";
 import TablePagination from "@material-ui/core/TablePagination";
 import "./wordList.component.css";
 
 import Paper from "@material-ui/core/Paper";
-const rowsPerPageOptions = [5, 10, 25, { label: "All", value: -1 }];
+// const rowsPerPageOptions = [5, 10, 25, { label: "All", value: -1 }];
+const rowsPerPageOptions = [12];
 
 function WordList(props) {
   const [foundWords, setWords] = useState(props.words); // useState ([]);
   const [sortDir, setSortDir] = useState("asc");
   const [isSorted, setSorted] = useState(false);
   const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(rowsPerPageOptions[1]);
-
+  const [rowsPerPage, setRowsPerPage] = useState(rowsPerPageOptions[0]);
+  const {filterLength} = props;
   React.useEffect(() => {
+    if (filterLength) {
+      setWords( props.words.filter(function (word)  {
+        return word.length === filterLength;
+      }) );
+
+    } else {
     setWords(props.words);
-  }, [props.words]);
+    }
+  }, [props.words, filterLength]);
 
   const sortWords = () => {
     setSorted(true);
@@ -35,11 +43,11 @@ function WordList(props) {
         setSortDir("asc");
       }
     }
-    setWords(
-      foundWords.map((word) => {
-        return word;
-      })
-    );
+      setWords(
+        foundWords.map((word) => {
+          return word;
+        })
+      );
   };
 
   const handleChangePage = (event, newPage) => {
@@ -60,10 +68,10 @@ function WordList(props) {
       <Table size="small" aria-label="simple table" className="tableInner">
         <TableHead>
           <TableRow>
-            <TableCell style={{ width: "140px" }}>
+            <TableCell style={{ width: "140px", textAlign: 'center' }}>
               Words {foundWords ? "(" + foundWords.length + ")" : ""}
             </TableCell>
-            <TableCell>
+            {/* <TableCell>
               <TableSortLabel
                 classes={{
                   root: isSorted ? "activeSortIcon" : "inactiveSortIcon",
@@ -75,7 +83,7 @@ function WordList(props) {
               >
                 Length
               </TableSortLabel>
-            </TableCell>
+            </TableCell> */}
           </TableRow>
         </TableHead>
         <TableBody>
@@ -91,13 +99,13 @@ function WordList(props) {
                 <TableCell
                   component="th"
                   scope="row"
-                  style={{ width: "140px" }}
+                  style={{ width: "140px", textAlign: 'center' }}
                 >
                   {word}
                 </TableCell>
-                <TableCell align="right" style={{ width: "80px" }}>
+                {/* <TableCell align="right" style={{ width: "80px" }}>
                   {word.length}
-                </TableCell>
+                </TableCell> */}
               </TableRow>
             ))}
         </TableBody>

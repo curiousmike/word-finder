@@ -3,7 +3,7 @@
 }
 .tableContainer {
   text-align: center;
-  margin: 4px auto 4px;
+  margin: auto;
   width: 100%;
   max-width: 720px;
 
@@ -13,6 +13,8 @@
 
 .tableInner {
   background-color: papayawhip;
+  min-height:420px;
+  max-height:420px;
 }
 
 .activeSortIcon {

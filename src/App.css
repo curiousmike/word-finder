@@ -1,18 +1,35 @@
+
 .App {
+  height: 100vh;
+  /* min-height: 100vh;
+  height: -webkit-fill-available; */
 }
 
 .InnerContent {
-  min-height: calc(80vh - 46px - 58px);
-  width: 100%;
+  min-height: 85vh;
+  /* min-height: 597px; */
+  /* width: 100%; */
   background: #f8d69f;
-  margin: 0px auto;
+  /* margin: 0px auto; */
 }
+.App-button {
+  height: 8vh;
+  background-color: lightgoldenrodyellow;
+  display:flex;
+  align-items:center;
+  justify-content: center;
+}
+
 .footer {
-  height: 46px;
+  height: 7vh;
   background-color: tan;
+  display:flex;
+  align-items:center;
+  justify-content: center;
 }
+
 .footerText {
-  padding-top: 8px;
+  font: bold;
 }
 
 @media (min-width: 769px) {
@@ -20,7 +37,7 @@
     /*    min-height: 100vh;*/ /* vh=viewport relative - ViewHeight. 1vh = 1%. 100vh = 100%*/
     /* this lets us set min height to subtract hard-coded footer height AND height of solve button */
     /* min-height: 625px; */
-    min-height: calc(100vh - 46px - 58px);
+    /* min-height: calc(100vh - 20vh - 20vh); */
   }
 }
 .TitleContainer {
@@ -39,12 +56,6 @@
   pointer-events: none;
 }
 
-.App-button {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  text-align: center;
-  background-color: lightgoldenrodyellow;
-}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

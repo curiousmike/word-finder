@@ -7,6 +7,9 @@ const useStyles = makeStyles({
     background: "#DAF7A6",
     "text-align": "center",
   },
+  inputText: {
+    fontSize: "28px",
+  },
   container: {
     margin: "0px auto 8px",
     textAlign: "center",
@@ -25,6 +28,11 @@ function WordInput(props) {
           onChange={props.onChange}
           onKeyUp={props.onKeyPress}
           label="Enter letters here"
+          InputProps= {{
+            classes: {
+              input: classes.inputText,
+            }
+          }}
         />
       </form>
     </div>
