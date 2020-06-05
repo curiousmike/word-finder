@@ -12,12 +12,12 @@ import "./wordList.component.css";
 
 import Paper from "@material-ui/core/Paper";
 // const rowsPerPageOptions = [5, 10, 25, { label: "All", value: -1 }];
-const rowsPerPageOptions = [12];
+const rowsPerPageOptions = [10];
 
 function WordList(props) {
   const [foundWords, setWords] = useState(props.words); // useState ([]);
-  const [sortDir, setSortDir] = useState("asc");
-  const [isSorted, setSorted] = useState(false);
+  // const [sortDir, setSortDir] = useState("asc");
+  // const [isSorted, setSorted] = useState(false);
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(rowsPerPageOptions[0]);
   const {filterLength} = props;
@@ -32,23 +32,23 @@ function WordList(props) {
     }
   }, [props.words, filterLength]);
 
-  const sortWords = () => {
-    setSorted(true);
-    if (foundWords) {
-      if (sortDir === "asc") {
-        foundWords.sort((a, b) => b.length - a.length); // sort long to short
-        setSortDir("desc");
-      } else {
-        foundWords.sort((a, b) => a.length - b.length); // sort short to long
-        setSortDir("asc");
-      }
-    }
-      setWords(
-        foundWords.map((word) => {
-          return word;
-        })
-      );
-  };
+  // const sortWords = () => {
+  //   setSorted(true);
+  //   if (foundWords) {
+  //     if (sortDir === "asc") {
+  //       foundWords.sort((a, b) => b.length - a.length); // sort long to short
+  //       setSortDir("desc");
+  //     } else {
+  //       foundWords.sort((a, b) => a.length - b.length); // sort short to long
+  //       setSortDir("asc");
+  //     }
+  //   }
+  //     setWords(
+  //       foundWords.map((word) => {
+  //         return word;
+  //       })
+  //     );
+  // };
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
