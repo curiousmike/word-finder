@@ -1,7 +1,7 @@
 import { globalWordList } from "./globalWordList.js";
 
 export function Solver(letters) {
-  const fixedLetters = letters.toLowerCase();
+  let fixedLetters = letters.toLowerCase().replace(/[^a-z]/g, ''); // only allow a-z
   return generateWordCombos(fixedLetters);
 }
 

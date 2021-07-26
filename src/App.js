@@ -1,19 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "./App.css";
 import WordInput from "./components/wordInput.component";
 import WordList from "./components/wordList.component";
 import Button from "@material-ui/core/Button";
+// import LetterInputDebugComponent  from "./components/letterInputDebug.component";
 import { Solver } from "./solver.js";
 import "../node_modules/animate.css/animate.css";
 
 function App() {
   const [letterInput, setLetters] = useState("");
   const [words, setWords] = useState([]);
+  const inputRef = useRef();  // need to have ref to text input so I can directly get at it.
 
   const handleSolveClick = React.useCallback(() => {
-    const words = Solver(letterInput);
+    const words = Solver(inputRef.current.value); // because iOS can "Autocomplete insert text", the textInput isn't assured
     setWords(words);
-  }, [letterInput, setWords]);
+  });
 
   function handleKeyPress(e) {
     setLetters(e.target.value);
@@ -41,6 +43,7 @@ function App() {
             value={letterInput}
             onKeyPress={handleKeyPress}
             onSubmit={handleSubmit}
+            theRef={inputRef}
           />
           <Button
             variant="contained"
@@ -53,6 +56,7 @@ function App() {
             Solve
           </Button>
         </div>
+        {/* <LetterInputDebugComponent letters={letterInput}/> */}
       </div>
       <div className="WordListContainer">
         <WordList

@@ -23,6 +23,7 @@ function WordInput(props) {
     <div className={classes.container}>
       <form onSubmit={props.onSubmit}>
         <TextField
+          inputRef={props.theRef}
           className={classes.input}
           id="filled-basic"
           defaultValue={props.value}
