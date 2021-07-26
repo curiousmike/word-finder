@@ -1,0 +1,20 @@
+.wordSectionContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.charCountContainer {
+    margin-right: 8px;
+}
+
+.wordSection {
+    width: 260px;
+    height: 100px;
+    font-size: 16px;
+    font-family: arial;
+    resize: none;
+    background: #8ECAE6;
+    margin-top: 8px;
+  }
+  

@@ -5,14 +5,15 @@ import TextField from "@material-ui/core/TextField";
 const useStyles = makeStyles({
   input: {
     background: "#DAF7A6",
-    "text-align": "center",
+    // "text-align": "center",
+    marginRight: '8px',
   },
   inputText: {
     fontSize: "28px",
   },
   container: {
-    margin: "0px auto 8px",
-    textAlign: "center",
+    // margin: "0px auto 8px",
+    // textAlign: "center",
   },
 });
 
@@ -28,7 +29,7 @@ function WordInput(props) {
           onChange={props.onChange}
           onKeyUp={props.onKeyPress}
           label="Enter letters here"
-          InputProps= {{
+          InputProps={{
             classes: {
               input: classes.inputText,
             }

@@ -1,6 +1,15 @@
 * {
   box-sizing: border-box; /* forces padding and borders into width and height of elements instead of expanding */
 }
+.wordList {
+  height: 100%;
+  text-align: center;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  font-size: 32px;
+  padding: 0px;
+  margin: 0px;
+}
 .tableContainer {
   text-align: center;
   margin: auto;
@@ -13,8 +22,6 @@
 
 .tableInner {
   background-color: papayawhip;
-  min-height:420px;
-  max-height:420px;
 }
 
 .activeSortIcon {
