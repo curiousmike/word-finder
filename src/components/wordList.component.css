@@ -2,13 +2,14 @@
   box-sizing: border-box; /* forces padding and borders into width and height of elements instead of expanding */
 }
 .wordList {
-  height: 100%;
+  /* height: 100%; */
   text-align: center;
-  overflow-y: scroll;
+  overflow-y: hidden;
   overflow-x: hidden;
   font-size: 32px;
   padding: 0px;
   margin: 0px;
+  margin-top: 32px;
 }
 .tableContainer {
   text-align: center;

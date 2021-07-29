@@ -1,20 +1,21 @@
 .wordSectionContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  background: #219ebc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 0px; /* don't know where the padding right 40 is coming from */
 }
 
 .charCountContainer {
-    margin-right: 8px;
+  margin-right: 16px;
 }
 
 .wordSection {
-    width: 260px;
-    height: 100px;
-    font-size: 16px;
-    font-family: arial;
-    resize: none;
-    background: #8ECAE6;
-    margin-top: 8px;
-  }
-  
+  width: 320px;
+  height: 100px;
+  font-size: 18px;
+  font-family: arial;
+  resize: none;
+  background: #8ecae6;
+  margin-top: 8px;
+}
