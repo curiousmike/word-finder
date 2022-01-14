@@ -6,15 +6,13 @@ export function Solver(letters) {
 }
 
 function resetDictionaryArray(dict) {
-  for (var k = 0; k < theAlphabet.length; k++) {
-    var letter = theAlphabet[k];
+  for ( let letter of theAlphabet) {
     dict[letter] = 0;
   }
 }
 
 function buildWordLetterCounts(word, dict) {
-  for (var k = 0; k < word.length; k++) {
-    var letter = word[k];
+  for ( let letter of word) {
     dict[letter]++;
   }
 }
@@ -32,19 +30,16 @@ function generateWordCombos(letters) {
   var slen;
   var bValidWord = true;
   var currentLetterCounts = [];
-  for (var i = 0; i < globalWordList.length; i++) {
+  for (let word of globalWordList) {
     bValidWord = true;
     //reset current word counts
     resetDictionaryArray(currentLetterCounts);
 
-    slen = globalWordList[i].length;
-    for (var k = 0; k < slen; k++) {
-      let c = globalWordList[i][k];
-      currentLetterCounts[c]++;
+    for (let character of word) {
+      currentLetterCounts[character]++;
     }
 
-    for (var m = 0; m <= theAlphabet.length; m++) {
-      var letter = theAlphabet[m];
+    for (let letter of theAlphabet) {
       if (currentLetterCounts[letter] > 0) {
         if (theWordLetterCounts[letter] >= currentLetterCounts[letter]) {
           bValidWord = true;
@@ -58,11 +53,11 @@ function generateWordCombos(letters) {
       const isValidLimit = gUseLimit && gLimitCount;
 
       if (
-        (isValidLimit && globalWordList[i].length === gLimitCount) ||
+        (isValidLimit && word.length === gLimitCount) ||
         !gUseLimit ||
         !isValidLimit
       ) {
-        foundWords.push(globalWordList[i]);
+        foundWords.push(word);
       }
     }
   }

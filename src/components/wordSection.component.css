@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: center;
   padding-left: 0px; /* don't know where the padding right 40 is coming from */
+  margin-right: 8px;
 }
 
 .charCountContainer {
