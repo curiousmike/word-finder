@@ -2,6 +2,15 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
+If yarn start fails because
+
+For command prompt
+set NODE_OPTIONS=--openssl-legacy-provider
+
+For powershell -  
+to see ENV,
+dir env:
+$env:NODE_OPTIONS="--openssl-legacy-provider"
 In the project directory, you can run:
 
 ### `yarn start`
