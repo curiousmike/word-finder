@@ -1,4 +1,4 @@
-![alt text](https://github.com/curiousmike/word-finder/blob/master/public/wordfinder.png=250x)
+![alt text](https://github.com/curiousmike/word-finder/blob/master/public/wordfinder.png?250x)
 ## Available Scripts
 
 If yarn start fails because
