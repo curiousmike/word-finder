@@ -1,5 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
+![alt text](https://github.com/curiousmike/word-finder/blob/master/public/wordfinder.png?raw=true)
 ## Available Scripts
 
 If yarn start fails because
