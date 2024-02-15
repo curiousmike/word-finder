@@ -1,4 +1,5 @@
 ![alt text](https://github.com/curiousmike/word-finder/blob/master/public/wordfinder.png?250x)
+[<img src="https://github.com/curiousmike/word-finder/blob/master/public/wordfinder.png" width="250"/>]([image.png](https://github.com/curiousmike/word-finder/blob/master/public/wordfinder.png))
 ## Available Scripts
 
 If yarn start fails because
