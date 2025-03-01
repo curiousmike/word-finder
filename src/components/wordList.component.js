@@ -2,11 +2,11 @@ import React from "react";
 import WordSection from './wordSection.component';
 import "./wordList.component.css";
 
-function WordList(props) {
+function WordList({words}) {
   let wordLists = [];
-  wordLists = [];
+  if (words) {
   for (let filterLength = 2; filterLength < 20; filterLength++) {
-    const result = props.words.filter(function (word) {
+    const result = words.filter(function (word) {
       return word.length === filterLength;
     });
     if (result.length) {
@@ -14,13 +14,18 @@ function WordList(props) {
       wordLists.push(wordGroup);
     }
   }
+}
 
   return (
+    <>
+    {words?.length === 0 ? <div className="wordList">No words found.</div> : 
     <ul className="wordList">
       {wordLists.map(function (wordGroup, index) {
         return <WordSection key={index} wordGroup={wordGroup} />;
       })}
     </ul>
+}
+    </>
   );
 }
 

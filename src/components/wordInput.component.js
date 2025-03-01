@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import TextField from "@material-ui/core/TextField";
-
+import ClearIcon from "@material-ui/icons/Clear";
+import { IconButton, TextField } from "@material-ui/core";
 const useStyles = makeStyles({
   input: {
     background: "#DAF7A6",
@@ -17,23 +17,29 @@ const useStyles = makeStyles({
   },
 });
 
-function WordInput(props) {
+function WordInput({onSubmit, theRef, value, onChange, onKeyPress, clearInput}) {
   const classes = useStyles();
+  console.log('render -',value);
   return (
     <div className={classes.container}>
-      <form onSubmit={props.onSubmit}>
+      <form onSubmit={onSubmit}>
         <TextField
-          inputRef={props.theRef}
+          inputRef={theRef}
           className={classes.input}
           id="filled-basic"
-          defaultValue={props.value}
-          onChange={props.onChange}
-          onKeyUp={props.onKeyPress}
+          defaultValue={value}
+          value={value}
+          onChange={onChange}
+          onKeyUp={onKeyPress}
           label="Enter letters here"
           InputProps={{
             classes: {
               input: classes.inputText,
-            }
+            },
+            endAdornment: 
+              <IconButton size="small" onClick={()=>clearInput()}>
+                <ClearIcon />
+              </IconButton>
           }}
         />
       </form>

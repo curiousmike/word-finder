@@ -9,7 +9,7 @@ import "../node_modules/animate.css/animate.css";
 
 function App() {
   const [letterInput, setLetters] = useState("");
-  const [words, setWords] = useState([]);
+  const [words, setWords] = useState(null);
   const inputRef = useRef();  // need to have ref to text input so I can directly get at it.
 
   const handleSolveClick = React.useCallback(() => {
@@ -29,6 +29,11 @@ function App() {
     handleSolveClick();
   }
 
+  function resetInput () {
+    setLetters('');
+    setWords(null);
+  }
+
   return (
     <div className="App">
       <div className="InnerContent">
@@ -41,9 +46,10 @@ function App() {
         <div className="InputAndButtonContainer">
           <WordInput
             value={letterInput}
-            onKeyPress={handleKeyPress}
+            onChange={handleKeyPress}
             onSubmit={handleSubmit}
             theRef={inputRef}
+            clearInput={()=>resetInput()}
           />
           <Button
             variant="contained"
