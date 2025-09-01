@@ -1,18 +1,18 @@
 import { globalWordList } from "./globalWordList.js";
 
 export function Solver(letters) {
-  let fixedLetters = letters.toLowerCase().replace(/[^a-z]/g, ''); // only allow a-z
+  let fixedLetters = letters.toLowerCase().replace(/[^a-z]/g, ""); // only allow a-z
   return generateWordCombos(fixedLetters);
 }
 
 function resetDictionaryArray(dict) {
-  for ( let letter of theAlphabet) {
+  for (let letter of theAlphabet) {
     dict[letter] = 0;
   }
 }
 
 function buildWordLetterCounts(word, dict) {
-  for ( let letter of word) {
+  for (let letter of word) {
     dict[letter]++;
   }
 }
@@ -27,7 +27,6 @@ function generateWordCombos(letters) {
   resetDictionaryArray(theWordLetterCounts); // assume there are 0 of each letter
   buildWordLetterCounts(letters, theWordLetterCounts); // how many of each letter are there
 
-  var slen;
   var bValidWord = true;
   var currentLetterCounts = [];
   for (let word of globalWordList) {
